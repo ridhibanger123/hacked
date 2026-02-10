@@ -1,43 +1,51 @@
-import { SpiralDemo } from "@/components/ui/spiral-demo"
-import { useState, useEffect } from 'react'
-import {HeroSection} from "./components/Hero/Hero"
+// src/App.tsx
+import { SpiralDemo } from "@/components/ui/spiral-demo";
+import { useState, useEffect } from 'react';
+import { HeroSection } from "@/components/Hero/Hero";
+import Teams from "@/components/Team/Team";
+import Gallery from "@/components/Gallery/GalleryDemo";
+import Footer from "./components/Footer/Footer";
+import Sponsor from "./components/Sponsor/Sposnor";
+import Prizes from "./components/Prizes/Prizes";
 
 function App() {
-    const [showIntro, setShowIntro] = useState(true)
-    const [contentVisible, setContentVisible] = useState(false)
-    
+    const [showIntro, setShowIntro] = useState(true);
+
     const handleEnter = () => {
-        setShowIntro(false)
-    }
-    
+        setShowIntro(false);
+    };
+
     useEffect(() => {
         if (!showIntro) {
-            document.documentElement.style.overflow = ''
-            document.body.style.overflow = ''
-            document.body.style.position = ''
-            document.body.style.width = ''
-            document.body.style.height = ''
-            
-            const root = document.getElementById('root')
+            document.documentElement.style.overflow = '';
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+            document.body.style.height = '';
+
+            const root = document.getElementById('root');
             if (root) {
-                root.style.overflow = ''
-                root.style.height = ''
+                root.style.overflow = '';
+                root.style.height = '';
             }
-            
-            const timer = setTimeout(() => {
-                setContentVisible(true)
-            }, 100)
-            return () => clearTimeout(timer)
         }
-    }, [showIntro])
-    
+    }, [showIntro]);
+
     if (showIntro) {
-        return <SpiralDemo onEnter={handleEnter} />
+        return <SpiralDemo onEnter={handleEnter} />;
     }
-    
+
     return (
-        <HeroSection/>
-    )
+        <main>
+            <HeroSection />
+            <Teams />
+            <Sponsor />
+            <Prizes />
+            <Gallery />
+            
+            <Footer />
+        </main>
+    );
 }
 
-export default App
+export default App;

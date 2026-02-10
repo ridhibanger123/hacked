@@ -1,4 +1,4 @@
-// HeroSection.tsx
+// src/components/Hero/Hero.tsx
 import React, { useEffect, useRef, useState, useLayoutEffect } from 'react';
 import * as THREE from 'three';
 import { gsap } from 'gsap';
@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
-import './hero.css'
+import './hero.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -44,16 +44,18 @@ export const HeroSection: React.FC = () => {
   const terminalRef = useRef<HTMLDivElement>(null);
   const statusRef = useRef<HTMLDivElement>(null);
   const socialMenuRef = useRef<HTMLDivElement>(null);
+  const logoRef = useRef<HTMLDivElement>(null);
+  const logoImgRef = useRef<HTMLImageElement>(null);
 
   const smoothCameraPos = useRef({ x: 0, y: 30, z: 100 });
 
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [currentSection, setCurrentSection] = useState(0);
   const [terminalText, setTerminalText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
   const [statusText, setStatusText] = useState('INITIALIZING...');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
+  const [isInHeroSection, setIsInHeroSection] = useState(true);
+
   const totalSections = 3;
 
   const threeRefs = useRef<ThreeRefs>({
@@ -118,16 +120,38 @@ export const HeroSection: React.FC = () => {
     }
   ];
 
-  // Toggle menu handler
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  // Animate logo H to X transformation
+  useEffect(() => {
+    if (logoImgRef.current) {
+      if (isMenuOpen) {
+        // Transform logo to X
+        gsap.to(logoImgRef.current, {
+          rotation: 135,  // Rotate 135 degrees to form X
+          scale: 0.8,
+          duration: 0.4,
+          ease: 'back.out(1.7)'
+        });
+      } else {
+        // Transform back to normal
+        gsap.to(logoImgRef.current, {
+          rotation: 0,
+          scale: 1,
+          duration: 0.4,
+          ease: 'back.out(1.7)'
+        });
+      }
+    }
+  }, [isMenuOpen]);
 
   // Animate social menu
   useEffect(() => {
     if (socialMenuRef.current) {
       const socialItems = socialMenuRef.current.querySelectorAll('.social-item');
-      
+
       if (isMenuOpen) {
         gsap.to(socialMenuRef.current, {
           opacity: 1,
@@ -135,7 +159,7 @@ export const HeroSection: React.FC = () => {
           duration: 0.3,
           ease: 'power2.out'
         });
-        
+
         gsap.fromTo(
           socialItems,
           { opacity: 0, x: -20, scale: 0.8 },
@@ -157,7 +181,7 @@ export const HeroSection: React.FC = () => {
           stagger: 0.03,
           ease: 'power2.in'
         });
-        
+
         gsap.to(socialMenuRef.current, {
           opacity: 0,
           visibility: 'hidden',
@@ -196,7 +220,7 @@ export const HeroSection: React.FC = () => {
     let messageIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
-    let timeout: NodeJS.Timeout;
+    let timeout: ReturnType<typeof setTimeout>;
 
     const type = () => {
       const fullMessage = messages[messageIndex];
@@ -297,13 +321,13 @@ export const HeroSection: React.FC = () => {
         tl.fromTo(
           chars,
           { y: 150, opacity: 0, rotationX: -90 },
-          { 
-            y: 0, 
-            opacity: 1, 
+          {
+            y: 0,
+            opacity: 1,
             rotationX: 0,
-            duration: 1.2, 
-            stagger: 0.04, 
-            ease: 'power4.out' 
+            duration: 1.2,
+            stagger: 0.04,
+            ease: 'power4.out'
           },
           0.4
         );
@@ -395,6 +419,8 @@ export const HeroSection: React.FC = () => {
 
   // Initialize Three.js
   useEffect(() => {
+    if (!canvasRef.current) return;
+
     const initThree = () => {
       const { current: refs } = threeRefs;
 
@@ -633,8 +659,8 @@ export const HeroSection: React.FC = () => {
         const ring = new THREE.Mesh(geometry, material);
         ring.position.z = config.z;
         ring.rotation.x = Math.PI * config.rotationX;
-        ring.userData = { 
-          speed: 0.15 + i * 0.08, 
+        ring.userData = {
+          speed: 0.15 + i * 0.08,
           direction: i % 2 === 0 ? 1 : -1,
           baseZ: config.z
         };
@@ -731,7 +757,7 @@ export const HeroSection: React.FC = () => {
 
       const curve = new THREE.CatmullRomCurve3([]);
       const points = 100;
-      
+
       for (let i = 0; i <= points; i++) {
         const t = (i / points) * Math.PI * 2;
         const radius = 120;
@@ -768,7 +794,7 @@ export const HeroSection: React.FC = () => {
 
       if (refs.wheelOfTime) {
         refs.wheelOfTime.rotation.z = time * 0.03;
-        
+
         refs.wheelOfTime.children.forEach((child) => {
           if (child.userData.rotationSpeed) {
             child.rotation.z += child.userData.rotationSpeed * 0.016;
@@ -887,20 +913,18 @@ export const HeroSection: React.FC = () => {
   // Scroll handling
   useEffect(() => {
     const handleScroll = () => {
+      const container = containerRef.current;
+      if (!container) return;
+
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      const maxScroll = documentHeight - windowHeight;
-      const progress = maxScroll > 0 ? Math.min(scrollY / maxScroll, 1) : 0;
-
-      setScrollProgress(progress);
+      const heroHeight = container.offsetHeight;
       
-      const sectionHeight = windowHeight;
-      const currentSectionIndex = Math.min(
-        Math.floor(scrollY / sectionHeight),
-        totalSections - 1
-      );
-      setCurrentSection(currentSectionIndex);
+      const inHero = scrollY < heroHeight;
+      setIsInHeroSection(inHero);
+
+      const progress = Math.min(scrollY / heroHeight, 1);
+      setScrollProgress(progress);
 
       const { current: refs } = threeRefs;
 
@@ -910,6 +934,12 @@ export const HeroSection: React.FC = () => {
         { x: -10, y: 40, z: -200 }
       ];
 
+      const sectionHeight = windowHeight;
+      const currentSectionIndex = Math.min(
+        Math.floor(scrollY / sectionHeight),
+        totalSections - 1
+      );
+      
       const sectionProgress = (scrollY % sectionHeight) / sectionHeight;
       const currentPos = cameraPositions[currentSectionIndex] || cameraPositions[0];
       const nextPos = cameraPositions[Math.min(currentSectionIndex + 1, totalSections - 1)] || currentPos;
@@ -962,48 +992,39 @@ export const HeroSection: React.FC = () => {
   ];
 
   return (
-    <div ref={containerRef} className="hero-container">
+    <div ref={containerRef} className={`hero-container ${!isInHeroSection ? 'hero-hidden' : ''}`}>
       <canvas ref={canvasRef} className="hero-canvas" />
 
       <div className="scanlines"></div>
       <div className="vignette"></div>
-
-      <div ref={terminalRef} className="terminal-window">
-        <div className="terminal-header">
-          <div className="terminal-dots">
-            <span className="dot red"></span>
-            <span className="dot yellow"></span>
-            <span className="dot green"></span>
-          </div>
-          <span className="terminal-title">trinity@bmu-mainframe:~</span>
-        </div>
-        <div className="terminal-body">
-          <span className="terminal-text">{terminalText}</span>
-          <span className={`terminal-cursor ${showCursor ? 'visible' : ''}`}>█</span>
-        </div>
-      </div>
 
       <div ref={statusRef} className="status-indicator">
         <div className="status-dot"></div>
         <span className="status-text">{statusText}</span>
       </div>
 
-      {/* Side Menu with Social Icons */}
       <div ref={menuRef} className="side-menu">
-        <div 
-          className={`menu-icon ${isMenuOpen ? 'open' : ''}`}
+        {/* Logo Image that transforms */}
+        <div
+          className={`logo-container ${isMenuOpen ? 'open' : ''}`}
           onClick={handleMenuToggle}
           role="button"
           tabIndex={0}
           aria-label="Toggle social menu"
           onKeyDown={(e) => e.key === 'Enter' && handleMenuToggle()}
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <img 
+            ref={logoImgRef}
+            src="./images/logo.png" // Replace with your logo path
+            alt="Hacked BMU Logo"
+            className="logo-image"
+          />
+          <div className="x-overlay">
+            <span className="x-line x-line-1"></span>
+            <span className="x-line x-line-2"></span>
+          </div>
         </div>
-        
-        {/* Social Icons Menu */}
+
         <div ref={socialMenuRef} className="social-menu">
           {socialLinks.map((social, index) => (
             <a
@@ -1026,20 +1047,6 @@ export const HeroSection: React.FC = () => {
       <div className="corner top-right"><span>◣</span></div>
       <div className="corner bottom-left"><span>◥</span></div>
       <div className="corner bottom-right"><span>◤</span></div>
-
-      <div ref={scrollProgressRef} className="scroll-progress">
-        <div className="scroll-label">DECRYPT</div>
-        <div className="progress-container">
-          <div className="progress-track">
-            <div
-              className="progress-fill"
-              style={{ height: `${scrollProgress * 100}%` }}
-            />
-          </div>
-          <div className="progress-glow" style={{ bottom: `${scrollProgress * 100}%` }}></div>
-        </div>
-        
-      </div>
 
       <div className="scroll-content">
         <section ref={heroSectionRef} className="content-section first-section">

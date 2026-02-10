@@ -1,0 +1,355 @@
+/* ===== SPONSOR SECTION ===== */
+.sponsor-section {
+  min-height: 100vh;
+  background-color: #000000;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ===== HEADER STYLES ===== */
+.sponsor-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.sponsor-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+  margin-top: 0;
+}
+
+.sponsor-subtitle {
+  font-size: 1.25rem;
+  color: #666666;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ===== CARDS CONTAINER ===== */
+.sponsor-cards-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  perspective: 1000px;
+  padding: 60px 0;
+}
+
+/* ===== CARD WRAPPER ===== */
+.sponsor-card-wrapper {
+  position: relative;
+  transform: rotate(var(--rotation, 0deg));
+  z-index: var(--z-index, 5);
+  transition: transform 0.3s ease;
+}
+
+.sponsor-card-wrapper:hover {
+  z-index: 20;
+}
+
+/* ===== POPULAR BADGE ===== */
+.popular-badge {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  padding: 8px 20px;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(238, 90, 36, 0.4);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.popular-badge-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(238, 90, 36, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(238, 90, 36, 0.7);
+  }
+}
+
+/* ===== CARD STYLES ===== */
+.sponsor-card {
+  position: relative;
+  width: 300px;
+  height: 440px;
+  border-radius: 24px;
+  padding: 28px;
+  overflow: hidden;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+.sponsor-card.popular {
+  box-shadow: 
+    0 25px 60px -12px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(192, 192, 192, 0.3),
+    0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+/* ===== CARD CONTENT ===== */
+.card-content {
+  position: relative;
+  z-index: 10;
+  height: calc(100% - 50px);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== TIER HEADER ===== */
+.tier-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+/* ===== TIER BADGE ===== */
+.tier-badge {
+  display: inline-block;
+  width: fit-content;
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+  letter-spacing: 0.5px;
+}
+
+/* ===== PRICE STYLES ===== */
+.price {
+  display: block;
+  font-size: 3.5rem;
+  font-weight: 900;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  transform-origin: top left;
+}
+
+.price-period {
+  font-size: 1.25rem;
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+/* ===== DESCRIPTION ===== */
+.description {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  opacity: 0.85;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+/* ===== FEATURES LIST ===== */
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+.check-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* ===== BUTTON STYLES ===== */
+.sponsor-button {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  z-index: 20;
+  padding: 14px 24px;
+  border: 2px solid;
+  border-radius: 12px;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+  font-size: 0.875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.sponsor-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== BACKGROUND SVG ===== */
+.card-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ===== RESPONSIVE STYLES ===== */
+@media (max-width: 1024px) {
+  .sponsor-cards-container {
+    gap: 20px;
+  }
+  
+  .sponsor-card {
+    width: 260px;
+    height: 400px;
+    padding: 24px;
+  }
+  
+  .price {
+    font-size: 2.75rem;
+  }
+  
+  .sponsor-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 850px) {
+  .sponsor-section {
+    padding: 60px 20px;
+  }
+  
+  .sponsor-title {
+    font-size: 2rem;
+  }
+  
+  .sponsor-subtitle {
+    font-size: 1rem;
+  }
+  
+  .sponsor-header {
+    margin-bottom: 60px;
+  }
+  
+  .sponsor-cards-container {
+    flex-direction: column;
+    gap: 50px;
+  }
+  
+  .sponsor-card-wrapper {
+    transform: rotate(0deg) !important;
+  }
+  
+  .sponsor-card {
+    width: 320px;
+    height: 420px;
+  }
+  
+  .price {
+    font-size: 3rem;
+  }
+  
+  .popular-badge {
+    top: -14px;
+  }
+}
+
+@media (max-width: 400px) {
+  .sponsor-card {
+    width: 290px;
+    height: 400px;
+    padding: 20px;
+  }
+  
+  .price {
+    font-size: 2.5rem;
+  }
+  
+  .feature-item {
+    font-size: 0.8rem;
+  }
+  
+  .sponsor-button {
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    font-size: 0.8rem;
+  }
+}
+
+/* ===== HOVER EFFECTS ===== */
+.sponsor-card-wrapper:nth-child(1):hover {
+  transform: rotate(-4deg) translateY(-15px);
+}
+
+.sponsor-card-wrapper:nth-child(2):hover {
+  transform: rotate(0deg) translateY(-20px);
+}
+
+.sponsor-card-wrapper:nth-child(3):hover {
+  transform: rotate(4deg) translateY(-15px);
+}
+
+/* ===== GLOW EFFECTS FOR EACH TIER ===== */
+.sponsor-card-wrapper:nth-child(1) .sponsor-card:hover {
+  box-shadow: 
+    0 30px 60px -15px rgba(0, 0, 0, 0.8),
+    0 0 40px rgba(205, 127, 50, 0.4);
+}
+
+.sponsor-card-wrapper:nth-child(2) .sponsor-card:hover {
+  box-shadow: 
+    0 30px 60px -15px rgba(0, 0, 0, 0.8),
+    0 0 50px rgba(192, 192, 192, 0.5);
+}
+
+.sponsor-card-wrapper:nth-child(3) .sponsor-card:hover {
+  box-shadow: 
+    0 30px 60px -15px rgba(0, 0, 0, 0.8),
+    0 0 40px rgba(255, 215, 0, 0.4);
+}
+
+/* ===== SUBTLE FLOATING ANIMATION ===== */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.sponsor-card-wrapper:nth-child(2) {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Pause animation on hover */
+.sponsor-card-wrapper:nth-child(2):hover {
+  animation-play-state: paused;
+}

@@ -1,3 +1,4 @@
+/* src/App.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,9 +9,12 @@
   --hacked-matrix: #00ff41;
   --hacked-trinity: #ff0033;
   --hacked-dark: #0a0014;
+  min-height: 100%;
 }
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -18,16 +22,43 @@
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
 
 body {
+  width: 100%;
   background-color: #000;
   color: #fff;
   font-family: 'Inter', system-ui, sans-serif;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom scrollbar for the hacker aesthetic */
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.main-content {
+  width: 100%;
+  position: relative;
+}
+
+/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -45,157 +76,14 @@ body {
   background: linear-gradient(180deg, #6a00b0, #00ff61);
 }
 
-/* Matrix-style text selection */
 ::selection {
   background: #00ff41;
   color: #000;
 }
 
-/* Glitch animation for titles */
-@keyframes glitch {
-  0% {
-    text-shadow: 0.05em 0 0 #00ff41, -0.05em -0.025em 0 #ff0033,
-      0.025em 0.05em 0 #4a0080;
-  }
-  14% {
-    text-shadow: 0.05em 0 0 #00ff41, -0.05em -0.025em 0 #ff0033,
-      0.025em 0.05em 0 #4a0080;
-  }
-  15% {
-    text-shadow: -0.05em -0.025em 0 #00ff41, 0.025em 0.025em 0 #ff0033,
-      -0.05em -0.05em 0 #4a0080;
-  }
-  49% {
-    text-shadow: -0.05em -0.025em 0 #00ff41, 0.025em 0.025em 0 #ff0033,
-      -0.05em -0.05em 0 #4a0080;
-  }
-  50% {
-    text-shadow: 0.025em 0.05em 0 #00ff41, 0.05em 0 0 #ff0033,
-      0 -0.05em 0 #4a0080;
-  }
-  99% {
-    text-shadow: 0.025em 0.05em 0 #00ff41, 0.05em 0 0 #ff0033,
-      0 -0.05em 0 #4a0080;
-  }
-  100% {
-    text-shadow: -0.025em 0 0 #00ff41, -0.025em -0.025em 0 #ff0033,
-      -0.025em -0.05em 0 #4a0080;
-  }
-}
-
-.glitch-text {
-  animation: glitch 1s linear infinite;
-}
-
-@keyframes wheel-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.wheel-spin {
-  animation: wheel-spin 20s linear infinite;
-}
-
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-  }
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    border-color: hsl(var(--border));
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-}
-
-
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-#root {
-    width: 100%;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-}
-
 .intro-active html,
 .intro-active body,
 .intro-active #root {
-    overflow: hidden;
-    height: 100%;
+  overflow: hidden;
+  height: 100%;
 }

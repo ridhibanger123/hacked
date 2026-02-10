@@ -8,7 +8,7 @@ interface SpiralDemoProps {
 const SpiralDemo = ({ onEnter }: SpiralDemoProps) => {
     const [showButton, setShowButton] = useState(false)
     const [isExiting, setIsExiting] = useState(false)
-    
+
     // Lock scroll while intro is active
     useEffect(() => {
         // Lock scrolling
@@ -25,11 +25,11 @@ const SpiralDemo = ({ onEnter }: SpiralDemoProps) => {
             document.documentElement.style.height = ''
         }
     }, [])
-    
+
     const handleAnimationComplete = () => {
         setShowButton(true)
     }
-    
+
     const handleEnter = () => {
         setIsExiting(true)
         
@@ -43,7 +43,7 @@ const SpiralDemo = ({ onEnter }: SpiralDemoProps) => {
             onEnter()
         }, 800)
     }
-    
+
     return (
         <div 
             style={{
@@ -84,6 +84,7 @@ const SpiralDemo = ({ onEnter }: SpiralDemoProps) => {
             >
                 <button 
                     onClick={handleEnter}
+                    className="glitch-button"
                     style={{
                         position: 'relative',
                         padding: '24px 64px',
@@ -160,9 +161,11 @@ const SpiralDemo = ({ onEnter }: SpiralDemoProps) => {
                         pointerEvents: 'none'
                     }} />
                     
-                    {/* Text */}
-                    <span style={{ position: 'relative', zIndex: 10 }}>
-                        Hacked 4.0
+                    {/* Glitch Text Container */}
+                    <span className="glitch-wrapper" style={{ position: 'relative', zIndex: 10, display: 'inline-block' }}>
+                        <span className="glitch-text" data-text="Hacked 4.0">
+                            Hacked 4.0
+                        </span>
                     </span>
                 </button>
             </div>
@@ -187,6 +190,171 @@ const SpiralDemo = ({ onEnter }: SpiralDemoProps) => {
                         opacity: 0.6;
                         transform: scale(1.05);
                     }
+                }
+
+                .glitch-wrapper {
+                    position: relative;
+                }
+
+                .glitch-text {
+                    position: relative;
+                    display: inline-block;
+                    animation: glitch-skew 4s infinite linear alternate-reverse;
+                }
+
+                .glitch-text::before,
+                .glitch-text::after {
+                    content: attr(data-text);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .glitch-text::before {
+                    left: 2px;
+                    text-shadow: -2px 0 #ff00ff;
+                    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+                    animation: glitch-anim-1 3s infinite linear alternate-reverse;
+                }
+
+                .glitch-text::after {
+                    left: -2px;
+                    text-shadow: 2px 0 #00ffff;
+                    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+                    animation: glitch-anim-2 2s infinite linear alternate-reverse;
+                }
+
+                @keyframes glitch-anim-1 {
+                    0%, 100% {
+                        clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+                        transform: translate(0);
+                    }
+                    10% {
+                        clip-path: polygon(0 15%, 100% 15%, 100% 30%, 0 30%);
+                        transform: translate(-3px, -1px);
+                    }
+                    20% {
+                        clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%);
+                        transform: translate(3px, 1px);
+                    }
+                    30% {
+                        clip-path: polygon(0 25%, 100% 25%, 100% 45%, 0 45%);
+                        transform: translate(-2px, 0);
+                    }
+                    40% {
+                        clip-path: polygon(0 40%, 100% 40%, 100% 55%, 0 55%);
+                        transform: translate(2px, -1px);
+                    }
+                    50% {
+                        clip-path: polygon(0 5%, 100% 5%, 100% 15%, 0 15%);
+                        transform: translate(-1px, 2px);
+                    }
+                    60% {
+                        clip-path: polygon(0 50%, 100% 50%, 100% 70%, 0 70%);
+                        transform: translate(1px, 0);
+                    }
+                    70% {
+                        clip-path: polygon(0 30%, 100% 30%, 100% 40%, 0 40%);
+                        transform: translate(-2px, -2px);
+                    }
+                    80% {
+                        clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%);
+                        transform: translate(3px, 1px);
+                    }
+                    90% {
+                        clip-path: polygon(0 20%, 100% 20%, 100% 35%, 0 35%);
+                        transform: translate(-1px, -1px);
+                    }
+                }
+
+                @keyframes glitch-anim-2 {
+                    0%, 100% {
+                        clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+                        transform: translate(0);
+                    }
+                    10% {
+                        clip-path: polygon(0 70%, 100% 70%, 100% 85%, 0 85%);
+                        transform: translate(2px, 1px);
+                    }
+                    20% {
+                        clip-path: polygon(0 80%, 100% 80%, 100% 95%, 0 95%);
+                        transform: translate(-2px, -1px);
+                    }
+                    30% {
+                        clip-path: polygon(0 55%, 100% 55%, 100% 70%, 0 70%);
+                        transform: translate(1px, 2px);
+                    }
+                    40% {
+                        clip-path: polygon(0 90%, 100% 90%, 100% 100%, 0 100%);
+                        transform: translate(-1px, 0);
+                    }
+                    50% {
+                        clip-path: polygon(0 60%, 100% 60%, 100% 75%, 0 75%);
+                        transform: translate(2px, -1px);
+                    }
+                    60% {
+                        clip-path: polygon(0 75%, 100% 75%, 100% 90%, 0 90%);
+                        transform: translate(-3px, 1px);
+                    }
+                    70% {
+                        clip-path: polygon(0 65%, 100% 65%, 100% 80%, 0 80%);
+                        transform: translate(1px, -2px);
+                    }
+                    80% {
+                        clip-path: polygon(0 85%, 100% 85%, 100% 100%, 0 100%);
+                        transform: translate(-2px, 2px);
+                    }
+                    90% {
+                        clip-path: polygon(0 70%, 100% 70%, 100% 85%, 0 85%);
+                        transform: translate(2px, 0);
+                    }
+                }
+
+                @keyframes glitch-skew {
+                    0%, 100% {
+                        transform: skew(0deg);
+                    }
+                    10% {
+                        transform: skew(-0.5deg);
+                    }
+                    20% {
+                        transform: skew(0.5deg);
+                    }
+                    30% {
+                        transform: skew(0deg);
+                    }
+                    40% {
+                        transform: skew(-0.3deg);
+                    }
+                    50% {
+                        transform: skew(0.3deg);
+                    }
+                    60% {
+                        transform: skew(0deg);
+                    }
+                    70% {
+                        transform: skew(0.2deg);
+                    }
+                    80% {
+                        transform: skew(-0.2deg);
+                    }
+                    90% {
+                        transform: skew(0deg);
+                    }
+                }
+
+                .glitch-button:hover .glitch-text::before {
+                    animation: glitch-anim-1 0.5s infinite linear alternate-reverse;
+                }
+
+                .glitch-button:hover .glitch-text::after {
+                    animation: glitch-anim-2 0.3s infinite linear alternate-reverse;
+                }
+
+                .glitch-button:hover .glitch-text {
+                    animation: glitch-skew 0.5s infinite linear alternate-reverse;
                 }
             `}</style>
         </div>

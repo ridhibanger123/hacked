@@ -780,3 +780,323 @@ body {
     font-size: 0.65rem;
   }
 }
+/* hero.css - Add/Update these styles */
+
+/* Change canvas from fixed to absolute within hero container */
+.hero-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Hero container should have proper height for all sections */
+.hero-container {
+  position: relative;
+  width: 100%;
+  min-height: 300vh; /* 3 sections * 100vh */
+  overflow: hidden;
+  background: 
+    radial-gradient(ellipse at 20% 80%, rgba(0, 255, 136, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(0, 255, 255, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(255, 215, 0, 0.02) 0%, transparent 60%),
+    linear-gradient(180deg, #000508 0%, #000a10 50%, #000508 100%);
+}
+
+/* Overlays should be absolute within hero, not fixed */
+.scanlines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.1) 0px,
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  opacity: 0.4;
+}
+
+.vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    transparent 40%,
+    rgba(0, 5, 8, 0.4) 100%
+  );
+}
+
+/* UI elements remain fixed but with hero-specific class */
+.terminal-window,
+.status-indicator,
+.side-menu,
+.scroll-progress,
+.corner {
+  position: fixed;
+  z-index: 100;
+}
+
+/* Hide hero UI when scrolled past hero section */
+.hero-container.scrolled-past .terminal-window,
+.hero-container.scrolled-past .status-indicator,
+.hero-container.scrolled-past .side-menu,
+.hero-container.scrolled-past .scroll-progress {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Add to hero.css */
+
+/* Hero hidden state - fade out fixed elements when scrolling past */
+.hero-container.hero-hidden .hero-canvas,
+.hero-container.hero-hidden .scanlines,
+.hero-container.hero-hidden .vignette,
+.hero-container.hero-hidden .terminal-window,
+.hero-container.hero-hidden .status-indicator,
+.hero-container.hero-hidden .side-menu,
+.hero-container.hero-hidden .scroll-progress,
+.hero-container.hero-hidden .corner {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+/* Ensure hero-container has correct height */
+.hero-container {
+  position: relative;
+  width: 100%;
+  min-height: 300vh; /* 3 sections */
+  overflow-x: hidden;
+  background: 
+    radial-gradient(ellipse at 20% 80%, rgba(0, 255, 136, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(0, 255, 255, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(255, 215, 0, 0.02) 0%, transparent 60%),
+    linear-gradient(180deg, #000508 0%, #000a10 50%, #000508 100%);
+}
+
+/* Canvas stays fixed */
+.hero-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+/* Overlays stay fixed */
+.scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.1) 0px,
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  opacity: 0.4;
+  transition: opacity 0.5s ease;
+}
+
+.vignette {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    transparent 40%,
+    rgba(0, 5, 8, 0.4) 100%
+  );
+  transition: opacity 0.5s ease;
+}
+
+/* Scroll content is relative for normal flow */
+.scroll-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+/* H Logo Icon - Add this to your existing hero.css */
+
+.h-logo {
+  width: 32px;
+  height: 32px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.h-logo:hover {
+  transform: scale(1.1);
+}
+
+.h-logo:active {
+  transform: scale(0.95);
+}
+
+.h-bar {
+  position: absolute;
+  background: linear-gradient(180deg, #00ff88, #00ffff);
+  border-radius: 2px;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+/* Left vertical bar of H */
+.h-bar-left {
+  width: 4px;
+  height: 100%;
+  left: 4px;
+  top: 0;
+  transform-origin: center center;
+}
+
+/* Right vertical bar of H */
+.h-bar-right {
+  width: 4px;
+  height: 100%;
+  right: 4px;
+  top: 0;
+  transform-origin: center center;
+}
+
+/* Middle horizontal bar of H */
+.h-bar-middle {
+  width: calc(100% - 8px);
+  height: 4px;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: center center;
+}
+
+/* Hover glow effect */
+.h-logo:hover .h-bar {
+  box-shadow: 
+    0 0 15px rgba(0, 255, 136, 0.8),
+    0 0 30px rgba(0, 255, 255, 0.4);
+}
+
+/* Open state - X formation (handled by GSAP, but CSS fallback) */
+.h-logo.open .h-bar-left {
+  transform: translateX(8px) rotate(45deg);
+}
+
+.h-logo.open .h-bar-right {
+  transform: translateX(-8px) rotate(-45deg);
+}
+
+.h-logo.open .h-bar-middle {
+  transform: translateY(-50%) scaleX(0);
+  opacity: 0;
+}
+
+/* Pulse animation for the logo */
+@keyframes logoPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.8), 0 0 40px rgba(0, 255, 255, 0.3);
+  }
+}
+
+.h-bar {
+  animation: logoPulse 2s ease-in-out infinite;
+}
+
+/* Alternative: Glitch effect on hover */
+.h-logo:hover .h-bar-left {
+  animation: glitchBar 0.3s ease-in-out;
+}
+
+.h-logo:hover .h-bar-right {
+  animation: glitchBar 0.3s ease-in-out 0.1s;
+}
+
+.h-logo:hover .h-bar-middle {
+  animation: glitchBar 0.3s ease-in-out 0.05s;
+}
+
+@keyframes glitchBar {
+  0%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+  20% {
+    transform: translateX(-2px) translateY(1px);
+  }
+  40% {
+    transform: translateX(2px) translateY(-1px);
+  }
+  60% {
+    transform: translateX(-1px) translateY(0);
+  }
+  80% {
+    transform: translateX(1px) translateY(1px);
+  }
+}
+
+/* Keep the middle bar centered during glitch */
+.h-logo:hover .h-bar-middle {
+  animation: glitchBarMiddle 0.3s ease-in-out 0.05s;
+}
+
+@keyframes glitchBarMiddle {
+  0%, 100% {
+    transform: translateY(-50%) translateX(0);
+  }
+  20% {
+    transform: translateY(-50%) translateX(-2px);
+  }
+  40% {
+    transform: translateY(-50%) translateX(2px);
+  }
+  60% {
+    transform: translateY(-50%) translateX(-1px);
+  }
+  80% {
+    transform: translateY(-50%) translateX(1px);
+  }
+}
+
+/* Remove old menu-icon styles if present */
+.menu-icon {
+  display: none;
+}
+
+.logo-image{
+  height: 80px;
+}
