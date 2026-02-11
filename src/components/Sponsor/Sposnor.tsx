@@ -209,7 +209,14 @@ const Sponsor = () => {
       </div>
 
       <div className="brochure-section">
-        <button className="brochure-button">
+        {/* Anchor that triggers download of the sponsorship brochure placed in public/pdf */}
+        <a
+          className="brochure-button"
+          href="/pdf/SPONSORSHIP%20HACKED%204.0.pdf"
+          download="SPONSORSHIP HACKED 4.0.pdf"
+          aria-label="Download Sponsorship Brochure"
+          rel="noopener noreferrer"
+        >
           <svg
             width="20"
             height="20"
@@ -225,7 +232,7 @@ const Sponsor = () => {
             <line x1="12" y1="15" x2="12" y2="3" />
           </svg>
           Download Sponsorship Brochure
-        </button>
+        </a>
       </div>
     </section>
   );

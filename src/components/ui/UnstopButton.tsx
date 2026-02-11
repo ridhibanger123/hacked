@@ -4,7 +4,7 @@ import './unstop-button.css';
 const UnstopButton: React.FC = () => {
     return (
         <a
-            href="https://unstop.com/hackathons/hack-ed-2025-bml-munjal-university-bmu-gurugram-1389886"
+            href="https://unstop.com/hackathons/hacked-40-bml-munjal-university-bmu-gurgaon-1638479"
             target="_blank"
             rel="noopener noreferrer"
             className="unstop-floating-btn"

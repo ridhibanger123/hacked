@@ -317,6 +317,24 @@ body {
   text-align: center;
 }
 
+/* Remove underline for hero brochure anchor (when used as an <a>) */
+.hero-brochure-button {
+  text-decoration: none;
+}
+
+/* Remove any accidental vertical rule or pseudo-elements under the hero title/text */
+.hero-title::before,
+.hero-title::after,
+.title-underline::before,
+.title-underline::after,
+.subtitle-line::before,
+.subtitle-line::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  border: none !important;
+}
+
 @keyframes promptBlink {
 
   0%,

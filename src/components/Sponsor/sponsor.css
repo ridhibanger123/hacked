@@ -346,6 +346,8 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   cursor: pointer;
+  /* Remove underline for anchor links that use this class */
+  text-decoration: none;
   transition: all 0.3s ease;
   box-shadow:
     0 4px 16px rgba(0, 0, 0, 0.4),

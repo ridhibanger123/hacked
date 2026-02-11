@@ -998,7 +998,14 @@ export const HeroSection: React.FC = () => {
               {/* Download Brochure Button - Only for ABOUT section */}
               {i === 0 && (
                 <div className="hero-button-container">
-                  <button className="hero-brochure-button">
+                  {/* Anchor that downloads the event prospectus placed in public/pdf */}
+                  <a
+                    className="hero-brochure-button"
+                    href="/pdf/Event%20prospectus%20hacked%204.0.pdf"
+                    download="Event prospectus hacked 4.0.pdf"
+                    aria-label="Download Event Brochure"
+                    rel="noopener noreferrer"
+                  >
                     <svg
                       width="20"
                       height="20"
@@ -1014,7 +1021,7 @@ export const HeroSection: React.FC = () => {
                       <line x1="12" y1="15" x2="12" y2="3" />
                     </svg>
                     Download Event Brochure
-                  </button>
+                  </a>
                 </div>
               )}
             </div>
