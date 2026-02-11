@@ -726,7 +726,7 @@ const Teams: React.FC = () => {
 
   return (
     <div className="wrapper">
-      <section className="spacer"></section>
+
 
       <section ref={sectionRef} className="team-section">
         <div className="team-inner">

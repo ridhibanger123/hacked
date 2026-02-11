@@ -38,7 +38,7 @@ const Navbar: React.FC<NavbarProps> = ({
   const resolvedPillTextColor = pillTextColor ?? baseColor;
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [currentActive, setCurrentActive] = useState(activeHref || '');
-  
+
   const circleRefs = useRef<Array<HTMLSpanElement | null>>([]);
   const tlRefs = useRef<Array<gsap.core.Timeline | null>>([]);
   const activeTweenRefs = useRef<Array<gsap.core.Tween | null>>([]);
@@ -57,9 +57,9 @@ const Navbar: React.FC<NavbarProps> = ({
       const pill = circle.parentElement as HTMLElement;
       const rect = pill.getBoundingClientRect();
       const { width: w, height: h } = rect;
-      
+
       if (w === 0 || h === 0) return;
-      
+
       const R = ((w * w) / 4 + h * h) / (2 * h);
       const D = Math.ceil(2 * R) + 2;
       const delta = Math.ceil(R - Math.sqrt(Math.max(0, R * R - (w * w) / 4))) + 1;
@@ -102,7 +102,7 @@ const Navbar: React.FC<NavbarProps> = ({
   useEffect(() => {
     const capsule = capsuleRef.current;
     if (capsule) {
-      gsap.set(capsule, { 
+      gsap.set(capsule, {
         width: 0,
         opacity: 0,
         paddingLeft: 0,
@@ -122,13 +122,13 @@ const Navbar: React.FC<NavbarProps> = ({
         layoutPills();
       }
     };
-    
+
     window.addEventListener('resize', onResize);
 
     if (document.fonts?.ready) {
       document.fonts.ready.then(() => {
         if (isNavOpen) layoutPills();
-      }).catch(() => {});
+      }).catch(() => { });
     }
 
     return () => window.removeEventListener('resize', onResize);
@@ -248,7 +248,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
   const handleLogoClick = () => {
     const logoBtn = logoRef.current;
-    
+
     // Logo pulse animation
     if (logoBtn) {
       gsap.to(logoBtn, {
@@ -269,7 +269,7 @@ const Navbar: React.FC<NavbarProps> = ({
   const handleLogoHover = () => {
     const logoBtn = logoRef.current;
     if (!logoBtn || isNavOpen) return;
-    
+
     gsap.to(logoBtn, {
       scale: 1.05,
       duration: 0.2,
@@ -280,7 +280,7 @@ const Navbar: React.FC<NavbarProps> = ({
   const handleLogoLeave = () => {
     const logoBtn = logoRef.current;
     if (!logoBtn) return;
-    
+
     gsap.to(logoBtn, {
       scale: 1,
       duration: 0.2,
@@ -292,7 +292,7 @@ const Navbar: React.FC<NavbarProps> = ({
   const scrollToSection = (href: string) => {
     const targetId = href.replace('#', '');
     const element = document.getElementById(targetId);
-    
+
     if (element) {
       const offset = 80;
       const elementPosition = element.getBoundingClientRect().top;
@@ -307,10 +307,10 @@ const Navbar: React.FC<NavbarProps> = ({
 
   const handleNavItemClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    
+
     setCurrentActive(href);
     setIsNavOpen(false);
-    
+
     scrollToSection(href);
     onNavClick?.(href);
   };
@@ -344,8 +344,8 @@ const Navbar: React.FC<NavbarProps> = ({
           <div className="navbar-items" ref={capsuleRef}>
             <ul className="pill-list" role="menubar" ref={navItemsRef}>
               {items.map((item, i) => (
-                <li 
-                  key={item.href} 
+                <li
+                  key={item.href}
                   role="none"
                   ref={el => { itemRefs.current[i] = el; }}
                 >
@@ -379,8 +379,8 @@ const Navbar: React.FC<NavbarProps> = ({
 
       {/* Backdrop for closing nav when clicking outside */}
       {isNavOpen && (
-        <div 
-          className="navbar-backdrop" 
+        <div
+          className="navbar-backdrop"
           onClick={() => setIsNavOpen(false)}
           aria-hidden="true"
         />

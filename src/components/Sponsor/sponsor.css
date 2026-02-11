@@ -18,6 +18,7 @@
 
 .sponsor-title {
   font-size: 3.5rem;
+  font-family: var(--font-heading);
   font-weight: 800;
   color: #ffffff;
   margin-bottom: 16px;
@@ -78,9 +79,12 @@
 }
 
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 4px 15px rgba(238, 90, 36, 0.4);
   }
+
   50% {
     box-shadow: 0 4px 25px rgba(238, 90, 36, 0.7);
   }
@@ -94,14 +98,14 @@
   border-radius: 24px;
   padding: 28px;
   overflow: hidden;
-  box-shadow: 
+  box-shadow:
     0 25px 50px -12px rgba(0, 0, 0, 0.8),
     0 0 0 1px rgba(255, 255, 255, 0.1);
   cursor: pointer;
 }
 
 .sponsor-card.popular {
-  box-shadow: 
+  box-shadow:
     0 25px 60px -12px rgba(0, 0, 0, 0.8),
     0 0 30px rgba(192, 192, 192, 0.3),
     0 0 0 2px rgba(255, 255, 255, 0.2);
@@ -141,7 +145,7 @@
   display: block;
   font-size: 3.5rem;
   font-weight: 900;
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+  font-family: var(--font-heading);
   line-height: 1.1;
   margin-bottom: 12px;
   transform-origin: top left;
@@ -196,7 +200,7 @@
   padding: 14px 24px;
   border: 2px solid;
   border-radius: 12px;
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+  font-family: var(--font-heading);
   font-size: 0.875rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -223,17 +227,17 @@
   .sponsor-cards-container {
     gap: 20px;
   }
-  
+
   .sponsor-card {
     width: 260px;
     height: 400px;
     padding: 24px;
   }
-  
+
   .price {
     font-size: 2.75rem;
   }
-  
+
   .sponsor-title {
     font-size: 2.5rem;
   }
@@ -243,37 +247,37 @@
   .sponsor-section {
     padding: 60px 20px;
   }
-  
+
   .sponsor-title {
     font-size: 2rem;
   }
-  
+
   .sponsor-subtitle {
     font-size: 1rem;
   }
-  
+
   .sponsor-header {
     margin-bottom: 60px;
   }
-  
+
   .sponsor-cards-container {
     flex-direction: column;
     gap: 50px;
   }
-  
+
   .sponsor-card-wrapper {
     transform: rotate(0deg) !important;
   }
-  
+
   .sponsor-card {
     width: 320px;
     height: 420px;
   }
-  
+
   .price {
     font-size: 3rem;
   }
-  
+
   .popular-badge {
     top: -14px;
   }
@@ -285,15 +289,15 @@
     height: 400px;
     padding: 20px;
   }
-  
+
   .price {
     font-size: 2.5rem;
   }
-  
+
   .feature-item {
     font-size: 0.8rem;
   }
-  
+
   .sponsor-button {
     bottom: 20px;
     left: 20px;
@@ -318,28 +322,31 @@
 
 /* ===== GLOW EFFECTS FOR EACH TIER ===== */
 .sponsor-card-wrapper:nth-child(1) .sponsor-card:hover {
-  box-shadow: 
+  box-shadow:
     0 30px 60px -15px rgba(0, 0, 0, 0.8),
     0 0 40px rgba(205, 127, 50, 0.4);
 }
 
 .sponsor-card-wrapper:nth-child(2) .sponsor-card:hover {
-  box-shadow: 
+  box-shadow:
     0 30px 60px -15px rgba(0, 0, 0, 0.8),
     0 0 50px rgba(192, 192, 192, 0.5);
 }
 
 .sponsor-card-wrapper:nth-child(3) .sponsor-card:hover {
-  box-shadow: 
+  box-shadow:
     0 30px 60px -15px rgba(0, 0, 0, 0.8),
     0 0 40px rgba(255, 215, 0, 0.4);
 }
 
 /* ===== SUBTLE FLOATING ANIMATION ===== */
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-8px);
   }

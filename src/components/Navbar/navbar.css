@@ -12,7 +12,7 @@
   --logo-size: 52px;
   --pill-pad-x: 18px;
   --pill-gap: 3px;
-  
+
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -88,7 +88,7 @@
   flex-wrap: nowrap;
 }
 
-.pill-list > li {
+.pill-list>li {
   display: flex;
   height: 100%;
   will-change: transform, opacity;
@@ -250,7 +250,7 @@
     padding: 0;
   }
 
-  .pill-list > li {
+  .pill-list>li {
     width: 100%;
   }
 

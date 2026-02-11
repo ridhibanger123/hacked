@@ -8,6 +8,8 @@ import Footer from "./components/Footer/Footer";
 import Sponsor from "./components/Sponsor/Sposnor";
 import Prizes from "./components/Prizes/Prizes";
 import Navbar from "./components/Navbar/Navbar";
+import Schedule from "./components/Schedule/Schedule";
+import UnstopButton from "./components/ui/UnstopButton";
 
 function App() {
     const [showIntro, setShowIntro] = useState(true);
@@ -38,8 +40,10 @@ function App() {
 
     return (
         <main>
+            <UnstopButton />
             <Navbar logo={"./images/logo.png"} items={[
                 { label: "Home", href: "#home" },
+                { label: "Schedule", href: "#schedule" },
                 { label: "Teams", href: "#teams" },
                 { label: "Sponsors", href: "#sponsors" },
                 { label: "Prizes", href: "#prizes" },
@@ -47,11 +51,12 @@ function App() {
 
             ]} />
             <HeroSection />
+            <Schedule />
             <Teams />
             <Sponsor />
             <Prizes />
             <Gallery />
-            
+
             <Footer />
         </main>
     );

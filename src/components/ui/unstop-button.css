@@ -1,0 +1,55 @@
+.unstop-floating-btn {
+    position: fixed;
+    top: 1.5rem;
+    right: 2rem;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 24px;
+
+    /* Formal Glassmorphism Style */
+    background: rgba(15, 21, 26, 0.6);
+    /* Dark semi-transparent */
+    border: 1px solid rgba(73, 227, 251, 0.3);
+    /* Subtle cyan border */
+    backdrop-filter: blur(12px);
+    border-radius: 4px;
+    /* Sharper corners for formal look, or small radius */
+
+    /* Typography */
+    color: #49e3fb;
+    font-family: var(--font-heading);
+    /* Use site heading font if available, else inherit */
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.unstop-floating-btn:hover {
+    background: rgba(73, 227, 251, 0.1);
+    border-color: #49e3fb;
+    box-shadow: 0 0 15px rgba(73, 227, 251, 0.3);
+    transform: translateY(-2px);
+    color: #fff;
+    text-shadow: 0 0 8px rgba(73, 227, 251, 0.6);
+}
+
+.unstop-text {
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 768px) {
+    .unstop-floating-btn {
+        top: 1rem;
+        right: 1rem;
+        padding: 8px 16px;
+        font-size: 0.75rem;
+    }
+}

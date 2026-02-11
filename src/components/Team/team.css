@@ -9,7 +9,7 @@ html,
 body {
   background: #0a0a0a;
   color: #fff;
-  font-family: 'Inter', system-ui, sans-serif;
+  /* font-family: 'Inter', system-ui, sans-serif; <-- Removed to inherit from global */
   overflow-x: hidden;
 }
 
@@ -70,6 +70,7 @@ html.lenis body {
 
 .heading-main {
   font-size: clamp(3rem, 12vw, 10rem);
+  font-family: var(--font-heading);
   font-weight: 900;
   opacity: 0;
   visibility: hidden;
@@ -218,7 +219,7 @@ html.lenis body {
 
 .team-card:hover {
   transform: translateY(-6px) scale(1.03);
-  box-shadow: 
+  box-shadow:
     0 15px 35px rgba(102, 126, 234, 0.25),
     0 0 50px rgba(102, 126, 234, 0.1);
 }
@@ -244,12 +245,10 @@ html.lenis body {
 .card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    transparent 50%,
-    rgba(10, 10, 10, 0.9) 100%
-  );
+  background: linear-gradient(180deg,
+      transparent 0%,
+      transparent 50%,
+      rgba(10, 10, 10, 0.9) 100%);
   pointer-events: none;
 }
 
@@ -368,12 +367,10 @@ html.lenis body {
   transform: translate(-50%, -50%);
   width: 600px;
   height: 600px;
-  background: radial-gradient(
-    circle,
-    rgba(102, 126, 234, 0.12) 0%,
-    rgba(118, 75, 162, 0.08) 30%,
-    transparent 70%
-  );
+  background: radial-gradient(circle,
+      rgba(102, 126, 234, 0.12) 0%,
+      rgba(118, 75, 162, 0.08) 30%,
+      transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -383,11 +380,11 @@ html.lenis body {
   .team-grid.grid-cols-4 {
     grid-template-columns: repeat(4, 150px);
   }
-  
+
   .team-grid.grid-cols-3 {
     grid-template-columns: repeat(3, 150px);
   }
-  
+
   .team-grid.grid-cols-2 {
     grid-template-columns: repeat(2, 150px);
   }
@@ -429,6 +426,7 @@ html.lenis body {
 }
 
 @media (max-width: 700px) {
+
   .team-grid.grid-cols-4,
   .team-grid.grid-cols-3 {
     grid-template-columns: repeat(3, 130px);
@@ -449,6 +447,7 @@ html.lenis body {
 }
 
 @media (max-width: 550px) {
+
   .team-grid.grid-cols-4,
   .team-grid.grid-cols-3 {
     grid-template-columns: repeat(2, 140px);
@@ -515,6 +514,7 @@ html.lenis body {
 }
 
 @media (max-width: 400px) {
+
   .team-grid.grid-cols-4,
   .team-grid.grid-cols-3,
   .team-grid.grid-cols-2 {

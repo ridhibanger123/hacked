@@ -345,7 +345,7 @@ export const HeroSection: React.FC = () => {
 
           const color = new THREE.Color();
           const colorChoice = Math.random();
-          
+
           // Formal color palette - mostly cyan and lavender with subtle accents
           if (colorChoice < 0.5) {
             // Primary cyan - #49e3fb
@@ -552,7 +552,7 @@ export const HeroSection: React.FC = () => {
 
         const colorChoice = Math.random();
         const color = new THREE.Color();
-        
+
         if (colorChoice < 0.6) {
           // Primary cyan
           color.setHex(COLORS.primary);
@@ -563,7 +563,7 @@ export const HeroSection: React.FC = () => {
           // Muted teal
           color.setHex(COLORS.muted);
         }
-        
+
         color.multiplyScalar(0.7 + Math.random() * 0.3);
 
         colors[i * 3] = color.r;
@@ -892,7 +892,6 @@ export const HeroSection: React.FC = () => {
       </div>
 
       <div className="corner top-left"><span>◢</span></div>
-      <div className="corner top-right"><span>◣</span></div>
       <div className="corner bottom-left"><span>◥</span></div>
       <div className="corner bottom-right"><span>◤</span></div>
 

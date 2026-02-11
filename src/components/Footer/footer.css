@@ -6,7 +6,8 @@
   border-radius: 1.5rem;
   overflow: hidden;
   margin: 2rem;
-  isolation: isolate; /* Creates new stacking context */
+  isolation: isolate;
+  /* Creates new stacking context */
 }
 
 /* ============ Background Gradient - Layer 1 (Bottom) ============ */
@@ -15,7 +16,8 @@
   inset: 0;
   z-index: 1;
   background: radial-gradient(125% 125% at 50% 10%, #0F0F11cc 50%, #00ff8833 100%);
-  pointer-events: none; /* Allows clicks to pass through */
+  pointer-events: none;
+  /* Allows clicks to pass through */
 }
 
 /* ============ Text Hover Effect - Layer 2 (Middle) ============ */
@@ -42,7 +44,8 @@
   margin-right: auto;
   padding: 3.5rem;
   position: relative;
-  z-index: 10; /* Higher z-index for all interactive content */
+  z-index: 10;
+  /* Higher z-index for all interactive content */
 }
 
 /* ============ Footer Grid ============ */
@@ -90,7 +93,7 @@
   color: #00ff88;
   font-size: 1.5rem;
   font-weight: 800;
-  font-family: 'Courier New', monospace;
+  font-family: var(--font-heading);
   background: linear-gradient(135deg, #00ff88, #00d4ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -136,10 +139,13 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
     box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.4);
   }
+
   50% {
     opacity: 0.8;
     box-shadow: 0 0 0 8px rgba(0, 255, 136, 0);
@@ -183,7 +189,8 @@
   align-items: center;
   gap: 0.5rem;
   position: relative;
-  z-index: 20; /* Ensure links are clickable */
+  z-index: 20;
+  /* Ensure links are clickable */
   cursor: pointer;
 }
 
@@ -211,10 +218,13 @@
 }
 
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
     transform: translateY(-50%) scale(1);
   }
+
   50% {
     opacity: 0.5;
     transform: translateY(-50%) scale(1.2);
@@ -276,7 +286,8 @@
   display: flex;
   gap: 1rem;
   position: relative;
-  z-index: 50; /* High z-index for social links */
+  z-index: 50;
+  /* High z-index for social links */
 }
 
 .social-link-1 {
@@ -290,7 +301,8 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  z-index: 50; /* Ensure clickability */
+  z-index: 50;
+  /* Ensure clickability */
   cursor: pointer;
 }
 
@@ -351,7 +363,7 @@
 .text-stroke-light {
   fill: transparent;
   stroke: #1f2937;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: var(--font-heading);
   font-size: 4.5rem;
   font-weight: bold;
 }
@@ -359,14 +371,14 @@
 .text-stroke-accent {
   fill: transparent;
   stroke: #00ff88;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: var(--font-heading);
   font-size: 4.5rem;
   font-weight: bold;
 }
 
 .text-gradient-mask {
   fill: transparent;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: var(--font-heading);
   font-size: 4.5rem;
   font-weight: bold;
 }
