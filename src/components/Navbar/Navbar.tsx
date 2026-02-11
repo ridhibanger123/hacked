@@ -101,19 +101,20 @@ const Navbar: React.FC<NavbarProps> = ({
 
   useEffect(() => {
     const capsule = capsuleRef.current;
+    // Set capsule to start open
     if (capsule) {
       gsap.set(capsule, {
-        width: 0,
-        opacity: 0,
-        paddingLeft: 0,
-        paddingRight: 0
+        width: 'auto',
+        opacity: 1,
+        paddingLeft: 16,
+        paddingRight: 4
       });
     }
 
-    // Set initial state for nav items
+    // Set initial state for nav items - visible since starting open
     itemRefs.current.forEach((item) => {
       if (item) {
-        gsap.set(item, { opacity: 0, scale: 0.8, x: -10 });
+        gsap.set(item, { opacity: 1, scale: 1, x: 0 });
       }
     });
 
@@ -133,6 +134,18 @@ const Navbar: React.FC<NavbarProps> = ({
 
     return () => window.removeEventListener('resize', onResize);
   }, [items, ease]);
+
+  // Auto-close navbar on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isNavOpen) {
+        setIsNavOpen(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isNavOpen]);
 
   // Handle nav open/close animations
   useEffect(() => {

@@ -891,7 +891,6 @@ export const HeroSection: React.FC = () => {
         />
       </div>
 
-      <div className="corner top-left"><span>◢</span></div>
       <div className="corner bottom-left"><span>◥</span></div>
       <div className="corner bottom-right"><span>◤</span></div>
 
