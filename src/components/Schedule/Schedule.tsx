@@ -149,7 +149,7 @@ const Schedule: React.FC = () => {
     return (
         <section ref={sectionRef} className="schedule-section" id="schedule">
             <div className="schedule-header">
-                <h2 className="schedule-title">Event <span className="highlight">Schedule</span></h2>
+                <h2 className="schedule-title">Event Schedule</h2>
             </div>
 
             <div className="schedule-container" ref={containerRef}>

@@ -12,8 +12,11 @@
 .prizes-section {
   position: relative;
   min-height: 100vh;
-  padding: 8rem 2rem;
-  background: #0a0a0a;
+  padding: 6rem 2rem;
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(73, 227, 251, 0.02) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(181, 161, 227, 0.02) 0%, transparent 50%),
+    linear-gradient(180deg, #0f151a 0%, #18424a 50%, #0f151a 100%);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -37,12 +40,15 @@
 
 .prizes-heading {
   font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-family: var(--font-heading);
-  font-weight: 800;
-  color: #ffffff;
+  font-weight: 100;
+  color: #fff;
   margin-bottom: 1.5rem;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
+  text-shadow:
+    0 0 20px rgba(73, 227, 251, 0.5),
+    0 0 40px rgba(73, 227, 251, 0.3),
+    0 0 80px rgba(73, 227, 251, 0.15);
 }
 
 .prizes-subheading {
@@ -70,15 +76,15 @@
   position: relative;
   width: 280px;
   min-height: 320px;
-  background: rgba(20, 20, 30, 0.5);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 21, 26, 0.4);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(73, 227, 251, 0.15);
   border-radius: 24px;
   padding: 3rem 2rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow:
-    0 4px 16px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
   overflow: hidden;
 }
 
@@ -92,22 +98,22 @@
   background: radial-gradient(circle at 50% 0%,
       var(--card-color),
       transparent 70%);
-  opacity: 0.02;
+  opacity: 0.03;
   transition: opacity 0.4s ease;
   pointer-events: none;
 }
 
 .prize-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-12px) scale(1.02);
+  border-color: var(--card-color);
   box-shadow:
-    0 12px 40px rgba(0, 0, 0, 0.5),
-    0 0 20px var(--card-color),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    0 0 40px var(--card-color),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .prize-card:hover::before {
-  opacity: 0.06;
+  opacity: 0.08;
 }
 
 /* Featured card (1st place) */
@@ -115,16 +121,16 @@
   width: 320px;
   min-height: 380px;
   padding: 4rem 2.5rem;
-  background: rgba(25, 25, 35, 0.6);
-  border-width: 1px;
+  background: rgba(20, 26, 31, 0.5);
+  border-width: 2px;
 }
 
 .prize-card.featured::before {
-  opacity: 0.04;
+  opacity: 0.06;
 }
 
 .prize-card.featured:hover::before {
-  opacity: 0.08;
+  opacity: 0.12;
 }
 
 /* Card Content */
@@ -139,42 +145,9 @@
   z-index: 1;
 }
 
-.prize-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: clamp(4rem, 6vw, 6rem);
-  height: clamp(4rem, 6vw, 6rem);
-  margin: 0;
-  line-height: 1;
-  transition: all 0.3s ease;
-}
-
-.prize-icon svg {
-  width: 100%;
-  height: 100%;
-  color: var(--card-color);
-  stroke: var(--card-color);
-  filter: drop-shadow(0 0 20px var(--card-color));
-  transition: all 0.3s ease;
-}
-
-.prize-card:hover .prize-icon {
-  transform: scale(1.15) rotateY(15deg);
-}
-
-.prize-card:hover .prize-icon svg {
-  filter: drop-shadow(0 0 30px var(--card-color));
-}
-
-.prize-card.featured .prize-icon {
-  width: clamp(5rem, 7vw, 7rem);
-  height: clamp(5rem, 7vw, 7rem);
-}
-
 .prize-position {
   font-size: clamp(3.5rem, 4vw, 5rem);
-  font-weight: 300;
+  font-weight: 100;
   letter-spacing: 0.05em;
   color: var(--card-color);
   text-shadow:
@@ -194,6 +167,25 @@
 
 .prize-card.featured .prize-position {
   font-size: clamp(4.5rem, 5vw, 6rem);
+}
+
+.prize-amount {
+  font-size: clamp(2rem, 2.5vw, 2.75rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.05em;
+  margin: 0;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.prize-card:hover .prize-amount {
+  color: var(--card-color);
+  text-shadow: 0 0 25px var(--card-color);
+}
+
+.prize-card.featured .prize-amount {
+  font-size: clamp(2.5rem, 3vw, 3.25rem);
 }
 
 .prize-designation {

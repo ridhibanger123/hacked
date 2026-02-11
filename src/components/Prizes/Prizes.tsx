@@ -185,9 +185,6 @@ const Prizes: React.FC = () => {
           <h2 ref={headingRef} className="prizes-heading">
             Prizes & Rewards
           </h2>
-          <p ref={subheadingRef} className="prizes-subheading">
-            Compete for glory and incredible rewards worth over ₹2,00,000
-          </p>
         </div>
 
         <div ref={cardsContainerRef} className="prizes-cards">

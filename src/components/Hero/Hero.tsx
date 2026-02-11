@@ -854,14 +854,14 @@ export const HeroSection: React.FC = () => {
 
   const sectionData = [
     {
-      title: 'TRINITY',
-      line1: 'The One who breaks the code,',
-      line2: 'The Pattern cannot hold what is destined to be free'
+      title: 'ABOUT',
+      line1: 'A 24-hour flagship hackathon where innovation meets creativity,',
+      line2: 'Empowering participants to build groundbreaking solutions to real-world problems'
     },
     {
-      title: 'WHEEL OF TIME',
-      line1: 'Time is a wheel with neither beginning nor end,',
-      line2: 'The threads weave together in the eternal Pattern'
+      title: 'THEME',
+      line1: 'An open theme empowering creative solutions—explore any problem, any vision',
+      line2: 'Judged on Execution and Learning: Implementation quality meets innovative thinking'
     }
   ];
 
