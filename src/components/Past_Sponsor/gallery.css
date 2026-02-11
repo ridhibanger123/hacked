@@ -47,8 +47,8 @@
    ============================================ */
 .zoom-parallax-image-container {
   position: relative;
-  height: 20vh;
-  width: 20vw;
+  height: 12vh;
+  width: 12vw;
 }
 
 /* ============================================
@@ -73,8 +73,8 @@
   position: absolute !important;
   top: 5vh !important;
   left: calc(50% + 20vw) !important;
-  height: 22vh !important;
-  width: 22vw !important;
+  height: 14vh !important;
+  width: 14vw !important;
   transform: translateX(-50%);
 }
 
@@ -83,8 +83,8 @@
   position: absolute !important;
   top: 8vh !important;
   left: calc(50% - 25vw) !important;
-  height: 24vh !important;
-  width: 18vw !important;
+  height: 15vh !important;
+  width: 11vw !important;
   transform: translateX(-50%);
 }
 
@@ -93,8 +93,8 @@
   position: absolute !important;
   top: 50% !important;
   left: calc(50% + 28vw) !important;
-  height: 20vh !important;
-  width: 20vw !important;
+  height: 12vh !important;
+  width: 12vw !important;
   transform: translate(-50%, -50%);
 }
 
@@ -104,8 +104,8 @@
   bottom: 12vh !important;
   top: auto !important;
   left: calc(50% + 15vw) !important;
-  height: 20vh !important;
-  width: 18vw !important;
+  height: 12vh !important;
+  width: 11vw !important;
   transform: translateX(-50%);
 }
 
@@ -115,8 +115,8 @@
   bottom: 15vh !important;
   top: auto !important;
   left: calc(50% - 22vw) !important;
-  height: 22vh !important;
-  width: 22vw !important;
+  height: 14vh !important;
+  width: 14vw !important;
   transform: translateX(-50%);
 }
 
@@ -126,8 +126,8 @@
   bottom: 8vh !important;
   top: auto !important;
   left: calc(50% + 35vw) !important;
-  height: 18vh !important;
-  width: 16vw !important;
+  height: 11vh !important;
+  width: 10vw !important;
   transform: translateX(-50%);
 }
 
@@ -228,7 +228,19 @@
    RESPONSIVE STYLES
    ============================================ */
 
+/* Tablet and medium screens - Show only first 10 logos */
+@media (max-width: 1024px) {
+  .zoom-parallax-item[data-index]:nth-child(n+11) {
+    display: none !important;
+  }
+}
+
+/* Mobile screens - Show only first 10 logos */
 @media (max-width: 768px) {
+  .zoom-parallax-item[data-index]:nth-child(n+11) {
+    display: none !important;
+  }
+
   .zoom-parallax-image-container {
     height: 20vh !important;
     width: 40vw !important;
