@@ -57,7 +57,16 @@ const teamsData: Team[] = [
         designation: 'Lead Organizer',
         image: 'https://media.licdn.com/dms/image/v2/D4D03AQE8bmHjHTlzpg/profile-displayphoto-scale_400_400/B4DZhxn.EvGkAo-/0/1754252963478?e=1772668800&v=beta&t=g2PsOnz274khen8xfhVc1j07vIPft-66BURNp6abn9M',
         socials: {
-          linkedin: 'https://linkedin.com/in/mehak-bhardwaj',
+          linkedin: 'https://www.linkedin.com/in/mehak-bhardwaj',
+        },
+      },
+      {
+        id: 4,
+        name: 'Suvansh',
+        designation: 'Lead Organizer',
+        image: 'https://media.licdn.com/dms/image/v2/D4E03AQH6imQf_FwgLg/profile-displayphoto-shrink_400_400/B4EZQtY6v0HEAk-/0/1735928296012?e=1772668800&v=beta&t=5THGQT64gtP5rEQzVQhN9e_pxRTu3ShfelmC8kGmhlE',
+        socials: {
+          linkedin: 'https://www.linkedin.com/in/suvansh-sehgal',
         },
       },
     ],
@@ -67,7 +76,7 @@ const teamsData: Team[] = [
     name: 'Operations',
     members: [
       {
-        id: 4,
+        id: 5,
         name: 'Karttikey',
         designation: 'Operations Team Lead',
         image: 'https://media.licdn.com/dms/image/v2/D4D03AQFz1YDINwSJtw/profile-displayphoto-scale_400_400/B4DZwzb9j4JEAg-/0/1770389497317?e=1772668800&v=beta&t=7x7tXDmpRTQEhgM-bh3qtuXXfoXShsXjgrTZn2X5TO4',
@@ -76,7 +85,7 @@ const teamsData: Team[] = [
         },
       },
       {
-        id: 5,
+        id: 6,
         name: 'Vedansh Mathur',
         designation: 'Operations Team Lead',
         image: 'https://media.licdn.com/dms/image/v2/D4D03AQFqs6vp5HEUwg/profile-displayphoto-scale_400_400/B4DZfQY32uHkAg-/0/1751547871875?e=1772668800&v=beta&t=3_PVZsHcFikZgA88sa0HzK0nv-VnW91z_8PRpHURYec',
@@ -85,7 +94,7 @@ const teamsData: Team[] = [
         },
       },
       {
-        id: 6,
+        id: 7,
         name: 'Harshul Saini',
         designation: 'Entry Management Lead',
         image: 'https://media.licdn.com/dms/image/v2/D4D03AQFMDbB7KStRIw/profile-displayphoto-shrink_400_400/B4DZY.4sq2G8Ag-/0/1744811773651?e=1772668800&v=beta&t=d_Tu6mQ6r9t8OkBabDPZ90XX4heZTcLwjOQBhw7dytk',
@@ -100,7 +109,7 @@ const teamsData: Team[] = [
     name: 'Design',
     members: [
       {
-        id: 7,
+        id: 8,
         name: 'Parth Bansal',
         designation: 'Design Lead',
         image: 'https://media.licdn.com/dms/image/v2/D5603AQGFBpAC-oN3ow/profile-displayphoto-scale_400_400/B56ZtFPGI1LEAg-/0/1766393145858?e=1772668800&v=beta&t=CpUoKmMaaZ6yw9fWNuywp-Wiciabb_tl9QRid4Qx9aA',
@@ -109,7 +118,7 @@ const teamsData: Team[] = [
         },
       },
       {
-        id: 8,
+        id: 9,
         name: 'Khushi Vijay',
         designation: 'Design Lead',
         image: 'https://media.licdn.com/dms/image/v2/D4E03AQEh4iDvacUVOg/profile-displayphoto-scale_400_400/B4EZss8lIGHgAk-/0/1765985638475?e=1772668800&v=beta&t=QJvZf_Hub-1I8GivhzWgig6vsVq6fdstc1HJEZOXPAk',
@@ -124,12 +133,21 @@ const teamsData: Team[] = [
     name: 'Technical',
     members: [
       {
-        id: 9,
+        id: 10,
         name: 'Mehul Vig',
         designation: 'Technical Lead',
         image: 'https://media.licdn.com/dms/image/v2/D5603AQFu-bq4YWJphA/profile-displayphoto-scale_400_400/B56ZtqENtaHAAg-/0/1767011050416?e=1772668800&v=beta&t=w7SU6UcE0Po_0vi4TVgLA3S7RyO4N4U-1K-8X9z6NNQ',
         socials: {
           linkedin: 'https://www.linkedin.com/in/mehul-vig/',
+        },
+      },
+      {
+        id: 11,
+        name: 'Namandeep Singh',
+        designation: 'Technical Lead',
+        image: 'https://via.placeholder.com/400',
+        socials: {
+          linkedin: 'https://www.linkedin.com/in/namandeep-singh',
         },
       },
     ],
@@ -139,7 +157,7 @@ const teamsData: Team[] = [
     name: 'Sponsorship',
     members: [
       {
-        id: 10,
+        id: 12,
         name: 'Parth Sharma',
         designation: 'Sponsorship Lead',
         image: 'https://media.licdn.com/dms/image/v2/D5603AQHb_QUcWiO24w/profile-displayphoto-scale_400_400/B56ZxCkTyzGYAg-/0/1770643341032?e=1772668800&v=beta&t=LTwMqD3F1mji3F3LMr2584PFdEbNwZN55jec3XJB3kc',
@@ -148,12 +166,12 @@ const teamsData: Team[] = [
         },
       },
       {
-        id: 11,
+        id: 13,
         name: 'Harshita Tewani',
         designation: 'Sponsorship Lead',
         image: 'https://media.licdn.com/dms/image/v2/D5603AQGWOxKnceBaFw/profile-displayphoto-scale_400_400/B56ZujOAqQJsAk-/0/1767969918362?e=1772668800&v=beta&t=lVoCpt1aJnTwFTStAbQA-cjTzTPr0JeUKhxd5llC23g',
         socials: {
-          linkedin: 'https://linkedin.com/in/harshitatewani0103',
+          linkedin: 'https://www.linkedin.com/in/harshitatewani0103',
         },
       },
     ],
@@ -163,16 +181,7 @@ const teamsData: Team[] = [
     name: 'Marketing',
     members: [
       {
-        id: 12,
-        name: 'Manasvi Bansal',
-        designation: 'Judges & PR Lead',
-        image: 'https://media.licdn.com/dms/image/v2/D4E03AQFSXq5fc3Uc_w/profile-displayphoto-shrink_400_400/B4EZSHIyIgGwAo-/0/1737434015679?e=1772668800&v=beta&t=dRyOUyMdqKins0OZpO7-KoI80jLH9QJ-cz25SJgkDMc',
-        socials: {
-          linkedin: 'https://www.linkedin.com/in/manasvi-bansal-4679a1339',
-        },
-      },
-      {
-        id: 13,
+        id: 14,
         name: 'Manish Sihag',
         designation: 'Offline Marketing Lead',
         image: 'https://media.licdn.com/dms/image/v2/D4E03AQH3exBnV4SCZQ/profile-displayphoto-scale_400_400/B4EZgND.1NHoAk-/0/1752565806061?e=1772668800&v=beta&t=Zb_bPqcqR_HPoc1BwmXN7EEoN_9uwYTtpKo0N9Klk-I',
@@ -181,12 +190,28 @@ const teamsData: Team[] = [
         },
       },
       {
-        id: 14,
+        id: 15,
         name: 'Harsh Pratap Singh',
         designation: 'Offline Marketing Lead',
         image: 'https://media.licdn.com/dms/image/v2/D5603AQFKOGKfpOi5CA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1730132409858?e=1772668800&v=beta&t=7DWcW-HtP4T5uJxkJQ47M7BGZh_mtI2YA8NlWi9wv_s',
         socials: {
           linkedin: 'https://www.linkedin.com/in/harshpratapsingh333?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+        },
+
+      },
+    ],
+  },
+  {
+    id: 'Judges & PR Lead',
+    name: 'Judges & PR Lead',
+    members: [
+      {
+        id: 16,
+        name: 'Manasvi Bansal',
+        designation: 'Judges & PR Lead',
+        image: 'https://media.licdn.com/dms/image/v2/D4E03AQFSXq5fc3Uc_w/profile-displayphoto-shrink_400_400/B4EZSHIyIgGwAo-/0/1737434015679?e=1772668800&v=beta&t=dRyOUyMdqKins0OZpO7-KoI80jLH9QJ-cz25SJgkDMc',
+        socials: {
+          linkedin: 'https://www.linkedin.com/in/manasvi-bansal-4679a1339',
         },
       },
     ],
@@ -411,7 +436,6 @@ const Teams: React.FC = () => {
                   disabled={isAnimating}
                 >
                   <span className="button-text">{team.name}</span>
-                  <span className="button-count">{team.members.length}</span>
                 </button>
               ))}
             </div>
@@ -436,7 +460,7 @@ const Teams: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="card-content">
+                  <div className="card-content-team">
                     <h3 className="member-name">{member.name}</h3>
                     <p className="member-designation">{member.designation}</p>
                   </div>

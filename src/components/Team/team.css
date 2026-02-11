@@ -332,31 +332,41 @@ html.lenis body {
 }
 
 /* Card Content */
-.card-content {
+.card-content-team {
   padding: 0.75rem;
   text-align: center;
   position: relative;
+  z-index: 10;
+  display: block;
+  visibility: visible;
+  background: rgba(15, 15, 26, 0.95);
 }
 
 .member-name {
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-weight: 700;
-  margin-bottom: 0.2rem;
-  color: #fff;
+  margin-bottom: 0.3rem;
+  color: #fff !important;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: block;
+  visibility: visible;
+  opacity: 1;
 }
 
 .member-designation {
-  font-size: 0.6rem;
-  color: #667eea;
+  font-size: 0.75rem;
+  color: #667eea !important;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: block;
+  visibility: visible;
+  opacity: 1;
 }
 
 /* Background Glow */
@@ -408,16 +418,16 @@ html.lenis body {
     height: 12px;
   }
 
-  .card-content {
+  .card-content-team {
     padding: 0.6rem;
   }
 
   .member-name {
-    font-size: 0.75rem;
+    font-size: 0.9rem;
   }
 
   .member-designation {
-    font-size: 0.55rem;
+    font-size: 0.7rem;
   }
 
   .heading-main {
@@ -486,16 +496,16 @@ html.lenis body {
     top: 53%;
   }
 
-  .card-content {
+  .card-content-team {
     padding: 0.5rem;
   }
 
   .member-name {
-    font-size: 0.7rem;
+    font-size: 0.85rem;
   }
 
   .member-designation {
-    font-size: 0.5rem;
+    font-size: 0.65rem;
   }
 
   .social-link {
@@ -531,16 +541,16 @@ html.lenis body {
     font-size: 0.5rem;
   }
 
-  .card-content {
+  .card-content-team {
     padding: 0.4rem;
   }
 
   .member-name {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
   }
 
   .member-designation {
-    font-size: 0.45rem;
+    font-size: 0.6rem;
   }
 
   .social-link {
