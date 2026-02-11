@@ -13,62 +13,49 @@ interface ScheduleItem {
     location: string;
 }
 
+// Reduced to 6 main event cards taken from the Flow of Events timeline
 const scheduleData: ScheduleItem[] = [
     {
         id: 1,
-        time: '09:00 AM',
-        title: 'Opening Ceremony',
-        description: 'Kickoff the hackathon with keynote speakers and announcements.',
-        location: 'Main Hall',
+        time: '09:00 AM - 11:00 AM (13 Mar)',
+        title: 'Check-In',
+        description: 'Participant registration and check-in at the reception.',
+        location: 'Reception',
     },
     {
         id: 2,
-        time: '10:00 AM',
-        title: 'Hacking Begins',
-        description: 'Start working on your projects! Mentors are available for help.',
-        location: 'Hack Zone',
+        time: '10:00 AM - 11:00 AM (13 Mar)',
+        title: 'Inaugural Session',
+        description: 'Opening ceremony and keynote addresses.',
+        location: 'Auditorium',
     },
     {
         id: 3,
-        time: '01:00 PM',
-        title: 'Lunch Break',
-        description: 'Refuel with delicious food and network with other hackers.',
-        location: 'Cafeteria',
+        time: '11:00 AM - 05:00 PM (13 Mar)',
+        title: 'Hacking Sessions',
+        description: 'Hacking starts and continues through the day with mentor support and breaks.',
+        location: 'North Block Building',
     },
     {
         id: 4,
-        time: '03:00 PM',
-        title: 'Workshop: AI Trends',
-        description: 'Learn about the latest trends in Artificial Intelligence.',
-        location: 'Auditorium B',
+        time: '05:00 PM - 07:00 PM (13 Mar)',
+        title: 'Mentoring Session',
+        description: 'Mentors available for focused guidance and troubleshooting.',
+        location: 'North Block Building',
     },
     {
         id: 5,
-        time: '06:00 PM',
-        title: 'Dinner & Games',
-        description: 'Relax and have fun with some games and dinner.',
-        location: 'Lounge Area',
+        time: '02:30 AM - 08:00 AM (14 Mar)',
+        title: 'Final Hacking',
+        description: 'Final push to complete projects before submission.',
+        location: 'North Block Building',
     },
     {
         id: 6,
-        time: '09:00 PM',
-        title: 'Midnight Coding Challenge',
-        description: 'A fun mini-competition for night owls.',
-        location: 'Hack Zone',
-    },
-    {
-        id: 7,
-        time: '12:00 AM',
-        title: 'Midnight Snacks',
-        description: 'Late night fuel to keep you going.',
-        location: 'Cafeteria',
-    },
-    {
-        id: 8,
-        time: '08:00 AM',
-        title: 'Project Submission',
-        description: 'Submit your projects for judging.',
-        location: 'Online Portal',
+        time: '11:00 AM - 05:00 PM (14 Mar)',
+        title: 'Judging & Closing',
+        description: 'Judging rounds followed by the closing ceremony and prize distribution.',
+        location: 'North Block Building / Auditorium',
     }
 ];
 
@@ -150,7 +137,14 @@ const Schedule: React.FC = () => {
         <section ref={sectionRef} className="schedule-section" id="schedule">
             <div className="schedule-header">
                 <h2 className="schedule-title">Event Schedule</h2>
-                <button className="schedule-download-button">
+                {/* Anchor that downloads the schedule PDF placed in public/pdf */}
+                <a
+                    className="schedule-download-button"
+                    href="/pdf/Flow%20of%20Events%20-%20Hacked%204.0%20.pdf"
+                    download="Flow of Events - Hacked 4.0.pdf"
+                    aria-label="Download Event Schedule"
+                    rel="noopener noreferrer"
+                >
                     <svg
                         width="20"
                         height="20"
@@ -166,7 +160,7 @@ const Schedule: React.FC = () => {
                         <line x1="12" y1="15" x2="12" y2="3" />
                     </svg>
                     Download Event Schedule
-                </button>
+                </a>
             </div>
 
             <div className="schedule-container" ref={containerRef}>
